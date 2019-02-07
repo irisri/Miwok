@@ -3,11 +3,9 @@ package com.example.android.miwok;
 public class Word {
     private String mDefaultTranslation;
     private String mMiwokTranslation;
-    private int mImageResourceId;
-
-
-    //private int mImageResourceId =  NO_IMAGE_PROVIDED;
-    //private static final int NO_IMAGE_PROVIDED = -1;
+    private int mAudioResourceId;
+    private int mImageResourceId =  NO_IMAGE_PROVIDED;
+    private static final int NO_IMAGE_PROVIDED = -1;
 
     /**
      * Create a new Word object
@@ -17,9 +15,10 @@ public class Word {
      * @param miwokTranslation is the word in the Miwok language
      */
 
-    public Word (String defaultTranslation, String miwokTranslation) {
+    public Word (String defaultTranslation, String miwokTranslation, int audioResourceId) {
             mDefaultTranslation = defaultTranslation;
             mMiwokTranslation = miwokTranslation;
+            mAudioResourceId = audioResourceId;
     }
 
     /**
@@ -32,10 +31,11 @@ public class Word {
      *
      */
 
-    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId, int audioResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceId = imageResourceId;
+        mAudioResourceId = audioResourceId;
     }
 
     public int getImageResourceId() {
@@ -50,7 +50,21 @@ public class Word {
         return mDefaultTranslation;
     }
 
-    /*public boolean hasImage() {
+    public int getAudioResourceId() {
+        return mAudioResourceId;
+    }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mDefaultTranslation='" + mDefaultTranslation + '\'' +
+                ", mMiwokTranslation='" + mMiwokTranslation + '\'' +
+                ", mImageResourceId=" + mImageResourceId +
+                ", mAudioResourceId=" + mAudioResourceId +
+                '}';
+    }
+
+    public boolean hasImage() {
         return mImageResourceId != NO_IMAGE_PROVIDED;
-    }*/
+    }
 }
